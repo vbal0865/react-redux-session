@@ -7,6 +7,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
 
 const styles = theme => ({
   todoList: {
@@ -20,6 +21,9 @@ class TodoList extends React.Component {
     const { classes } = this.props
     return (
         <Card className={classes.todoList}>
+            <CardHeader
+                title="Notes List"
+            />
             <CardContent>
                 <List>
                 {this.props.noteList.map((value, i) => (
