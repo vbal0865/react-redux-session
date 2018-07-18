@@ -8,16 +8,6 @@ import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
 
 const styles = theme => ({
-  root: {
-    textAlign: 'center',
-    paddingTop: theme.spacing.unit * 20,
-  },
-  card: {
-    minWidth: 275,
-  },
-  todoList: {
-    marginBottom: 50,
-  },
   form: {
     paddingTop: 15,
     paddingBottom: 15,

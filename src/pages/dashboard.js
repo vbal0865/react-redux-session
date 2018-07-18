@@ -14,14 +14,7 @@ const styles = theme => ({
   card: {
     minWidth: 275,
   },
-  todoList: {
-    marginBottom: 50,
-  },
-  form: {
-    paddingTop: 15,
-    paddingBottom: 15,
-    paddingLeft: 20,
-  }
+  
 });
 
 class Dashboard extends React.Component {
