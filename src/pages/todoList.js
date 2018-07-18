@@ -8,6 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
+import {connect} from 'react-redux';
 
 const styles = theme => ({
   todoList: {
@@ -42,4 +43,8 @@ TodoList.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withRoot(withStyles(styles)(TodoList));
+const mapStateToProps = state => ({
+    noteList: state.noteList
+});
+
+export default withRoot(withStyles(styles)(connect(mapStateToProps)(TodoList)));

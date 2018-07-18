@@ -6,6 +6,9 @@ import withRoot from '../withRoot';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
+import { connect } from 'react-redux'
+import { addNote } from '../actions'
+import { bindActionCreators } from 'redux';
 
 const styles = theme => ({
   form: {
@@ -26,8 +29,7 @@ class TodoForm extends React.Component {
       }
 
     handleClick = (e) => {
-        console.log(this.state)
-        this.props.onNoteAdd(this.state.noteToAdd)
+        this.props.addNote(this.state.noteToAdd)
       }
 
   render() {
@@ -55,4 +57,8 @@ TodoForm.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withRoot(withStyles(styles)(TodoForm));
+const mapDispatchToProps = dispatch => bindActionCreators({
+    addNote
+}, dispatch)
+
+export default withRoot(withStyles(styles)(connect(null, mapDispatchToProps)(TodoForm)));

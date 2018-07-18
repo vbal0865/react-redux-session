@@ -14,20 +14,11 @@ const styles = theme => ({
   card: {
     minWidth: 275,
   },
-  
+
 });
 
 class Dashboard extends React.Component {
 
-    state = {
-        noteList: [],
-    };
-
-    onNoteAdd = (note) => {
-        this.setState({
-            noteList: [...this.state.noteList, note],
-        })
-    }
   render() {
     const { classes } = this.props;
 
@@ -35,11 +26,11 @@ class Dashboard extends React.Component {
       <Grid container className={classes.root}>
         <Grid item xs={3}/>
         <Grid item xs={6}>
-            <TodoList noteList={this.state.noteList}/>
+            <TodoList/>
             <Grid container>
                 <Grid item xs={4}/>
                 <Grid item xs={8}>
-                    <TodoForm onNoteAdd={this.onNoteAdd}/>
+                    <TodoForm/>
                 </Grid>
             </Grid>
         </Grid>
