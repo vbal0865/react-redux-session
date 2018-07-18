@@ -52,13 +52,13 @@ class Index extends React.Component {
           </DialogActions>
         </Dialog>
         <Typography variant="display1" gutterBottom>
-          Material-UI
+          Sample Todo App
         </Typography>
         <Typography variant="subheading" gutterBottom>
           example project
         </Typography>
         <Button variant="contained" color="secondary" onClick={this.handleClick}>
-          Super Secret Password
+          Login
         </Button>
       </div>
     );
