@@ -7,8 +7,10 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
 import { connect } from 'react-redux'
-import { addNote } from '../actions'
+import { addNote , getNote } from '../actions'
 import { bindActionCreators } from 'redux';
+
+
 
 const styles = theme => ({
   form: {
@@ -31,6 +33,11 @@ class TodoForm extends React.Component {
     handleClick = (e) => {
         this.props.addNote(this.state.noteToAdd)
       }
+    
+    handleFetch = () => {
+        this.props.getNote()
+
+    }
 
   render() {
     const { classes } = this.props;
@@ -45,6 +52,10 @@ class TodoForm extends React.Component {
                     <Button variant="contained" color="primary" onClick={this.handleClick}>
                         ADD NOTE
                     </Button>
+
+                    <Button variant="contained" color="primary" onClick={this.handleFetch}>
+                        Fetch NOTES
+                    </Button>
                 </Grid>
             </Grid>
         </Card>
@@ -58,7 +69,8 @@ TodoForm.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    addNote
+    addNote,
+    getNote
 }, dispatch)
 
 export default withStyles(styles)(connect(null, mapDispatchToProps)(TodoForm));

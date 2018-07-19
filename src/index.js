@@ -6,9 +6,17 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import rootReducer from './reducers'
 import logger from 'redux-logger'
+import mySaga from './saga/sagas'
 
 
-const store = createStore(rootReducer, applyMiddleware(logger))
+import createSagaMiddleware from 'redux-saga'
+
+
+const sagaMiddleware = createSagaMiddleware()
+const store = createStore(rootReducer, applyMiddleware(logger,sagaMiddleware))
+
+// then run the saga
+sagaMiddleware.run(mySaga)
 
 ReactDOM.render(
     <Provider store={store}>
