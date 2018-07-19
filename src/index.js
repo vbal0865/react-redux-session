@@ -2,6 +2,4 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-import Dashboard from './pages/dashboard'
-
-ReactDOM.render(<Dashboard/>, document.querySelector('#root'));
+ReactDOM.render(<h1>Hello</h1>, document.querySelector('#root'));
