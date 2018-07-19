@@ -14,7 +14,6 @@ const styles = theme => ({
   card: {
     minWidth: 275,
   },
-
 });
 
 class Dashboard extends React.Component {

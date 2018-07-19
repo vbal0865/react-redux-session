@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import withRoot from '../withRoot';
+// import withRoot from '../withRoot';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -47,4 +47,4 @@ const mapStateToProps = state => ({
     noteList: state.noteList
 });
 
-export default withRoot(withStyles(styles)(connect(mapStateToProps)(TodoList)));
+export default withStyles(styles)(connect(mapStateToProps)(TodoList));
