@@ -1,56 +1,37 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import withRoot from '../withRoot';
-import Grid from '@material-ui/core/Grid';
-import TodoList from './todoList';
+import React from 'react'
 import TodoForm from './todoForm';
+import TodoList from './todoList';
 
-const styles = theme => ({
-  root: {
-    textAlign: 'center',
-    paddingTop: theme.spacing.unit * 20,
-  },
-  card: {
-    minWidth: 275,
-  },
-  
-});
 
-class Dashboard extends React.Component {
+// const Dashboard = () => {
+   
+//     return (<div>
+//         <h1>Dashboard</h1>
+//         <TodoList/>
+//         <TodoForm/>
+//     </div>)
+// }
+ 
 
-    state = {
-        noteList: [],
-    };
+// export default Dashboard 
 
-    onNoteAdd = (note) => {
-        this.setState({
-            noteList: [...this.state.noteList, note],
-        })
+class Dashboard extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {noteList:["Introduction to React","introduction to react-redux","introduction to redux-saga"]}
     }
-  render() {
-    const { classes } = this.props;
 
-    return (
-      <Grid container className={classes.root}>
-        <Grid item xs={3}/>
-        <Grid item xs={6}>
-            <TodoList noteList={this.state.noteList}/>
-            <Grid container>
-                <Grid item xs={4}/>
-                <Grid item xs={8}>
-                    <TodoForm onNoteAdd={this.onNoteAdd}/>
-                </Grid>
-            </Grid>
-        </Grid>
-        <Grid item xs={3}/>
-      </Grid>
-    );
-  }
+    onNoteAddHandler = (note) => {
+        this.setState({noteList:[...this.state.noteList, note]})
+    }
+
+    render(){
+            return (<div>
+        <h1>Dashboard</h1>
+        <TodoList noteList = {this.state.noteList}/>
+        <TodoForm onNoteAdd = {this.onNoteAddHandler} />
+    </div>)
+    }
 }
 
-Dashboard.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withRoot(withStyles(styles)(Dashboard));
+export default Dashboard 

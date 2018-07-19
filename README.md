@@ -1,6 +1,6 @@
-# Create-Redux example
+# Create React App example
 
-## How to use create-react-app with material-ui
+## How to use
 
 Download the example [or clone the repo](https://github.com/mui-org/material-ui):
 

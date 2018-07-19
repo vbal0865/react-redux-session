@@ -1,58 +1,39 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
-import withRoot from '../withRoot';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import Card from '@material-ui/core/Card';
+import React from 'react'
 
-const styles = theme => ({
-  form: {
-    paddingTop: 15,
-    paddingBottom: 15,
-    paddingLeft: 20,
-  }
-});
 
-class TodoForm extends React.Component {
+// const TodoForm = () => {
+//     return <input/>
+// }
+ 
+// export default TodoForm
 
-    state = {
-        noteToAdd: "",
-    };
+class TodoForm extends React.Component{
 
-    handleChange = (e) => {
-        this.setState({noteToAdd: e.target.value});
-      }
+    constructor(props){
+        super(props)
+        this.state = {noteToAdd : ""}
+        
+    }
 
-    handleClick = (e) => {
-        console.log(this.state)
+    onInputChange = (event) => {
+        // console.log(event.target.value)
+        this.setState({noteToAdd:event.target.value})
+
+    }
+
+    onclickHandler = () => {
         this.props.onNoteAdd(this.state.noteToAdd)
-      }
+        this.setState({noteToAdd:""})
+        console.log(this.state.noteToAdd)
+    }
 
-  render() {
-    const { classes } = this.props;
-
-    return (
-        <Card className={classes.form}>
-            <Grid container>
-                <Grid item xs={8}>
-                    <TextField id="note" type="text" label="add a note" onChange={this.handleChange}/>
-                </Grid>
-                <Grid item xs={4}>
-                    <Button variant="contained" color="primary" onClick={this.handleClick}>
-                        ADD NOTE
-                    </Button>
-                </Grid>
-            </Grid>
-        </Card>
-                
-    );
-  }
+    render(){ 
+        return (<div>
+            <input value = {this.state.noteToAdd} onChange={this.onInputChange}/>
+            <button  onClick = {this.onclickHandler}>Add note</button>
+                value of the input : {this.state.noteToAdd}
+            </div>)
+    }
 }
 
-TodoForm.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withRoot(withStyles(styles)(TodoForm));
+export default TodoForm
